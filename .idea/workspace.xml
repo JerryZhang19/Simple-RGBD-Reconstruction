@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated>
+      <config projectName="simpleslam" targetName="realsense_simpleslam" />
+      <config projectName="simpleslam" targetName="simpleslam" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" BUILD_OPTIONS="-j 12" />
+      <configuration PROFILE_NAME="Release" CONFIG_NAME="Release" BUILD_OPTIONS="-j 12" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="101b3c9f-0fdd-401c-a7c2-7f099e00f5c0" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Release" />
+  <component name="ProjectId" id="1Z8UAKFKfYYNDqmbhAvAB4IIpqD" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../g2o/g2o/examples" />
+    <property name="settings.editor.selected.configurable" value="CMakeSettings" />
+  </component>
+  <component name="RunManager" selected="Google Test.realsense_simpleslam">
+    <configuration name="realsense_simpleslam" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" PASS_PARENT_ENVS_2="true" PROJECT_NAME="simpleslam" TARGET_NAME="realsense_simpleslam" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="simpleslam" RUN_TARGET_NAME="realsense_simpleslam" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="simpleslam" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="simpleslam" TARGET_NAME="simpleslam" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Google Test.realsense_simpleslam" />
+      <item itemvalue="CMake Application.simpleslam" />
+    </list>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="101b3c9f-0fdd-401c-a7c2-7f099e00f5c0" name="Default Changelist" comment="" />
+      <created>1584220069258</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1584220069258</updated>
+      <workItem from="1584220070588" duration="6064000" />
+      <workItem from="1584247204277" duration="4094000" />
+      <workItem from="1584421739063" duration="12662000" />
+      <workItem from="1584500122026" duration="15939000" />
+      <workItem from="1584999104082" duration="6619000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="451" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585001508117">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="451" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1585001508117" />
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1585026596247">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1585026596247" />
+    <state width="1853" height="184" key="GridCell.Tab.0.bottom" timestamp="1585025368402">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1853" height="184" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1585025368402" />
+    <state width="1853" height="184" key="GridCell.Tab.0.center" timestamp="1585025368402">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1853" height="184" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1585025368402" />
+    <state width="1853" height="184" key="GridCell.Tab.0.left" timestamp="1585025368402">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1853" height="184" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1585025368402" />
+    <state width="1853" height="184" key="GridCell.Tab.0.right" timestamp="1585025368402">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1853" height="184" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1585025368402" />
+    <state x="482" y="187" key="SettingsEditor" timestamp="1585001593422">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="482" y="187" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1585001593422" />
+    <state x="649" y="380" key="com.intellij.ide.util.TipDialog" timestamp="1584421740322">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="649" y="380" key="com.intellij.ide.util.TipDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1584421740322" />
+    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1584231829390">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1584231829390" />
+  </component>
+</project>

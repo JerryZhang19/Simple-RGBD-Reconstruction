@@ -1,0 +1,10 @@
+640x480:
+
+Principal Point         : 325.981, 253.49
+Focal Length            : 611.849, 612.304
+
+
+1280x720
+
+Principal Point         : 648.971, 380.235
+Focal Length            : 917.773, 918.455
