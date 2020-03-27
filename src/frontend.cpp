@@ -89,7 +89,7 @@ bool Frontend::InsertKeyframe() {
 
     // track in right image
     //FindFeaturesInRight();
-    TriangulateNewPoints();
+    InitializeNewPoints();
     // update backend because we have a new keyframe
     LOG(INFO) << "Backend update map start:";
     backend_->UpdateMap();
@@ -108,15 +108,14 @@ void Frontend::SetObservationsForKeyFrame() {
 }
 
 
-int Frontend::TriangulateNewPoints() {
+int Frontend::InitializeNewPoints()  {
     //std::vector<SE3> poses{camera_left_->pose(), camera_right_->pose()};
     SE3 current_pose_Twc = current_frame_->Pose().inverse();
     int cnt_triangulated_pts = 0;
     for (size_t i = 0; i < current_frame_->features_.size(); ++i) {
         if (current_frame_->features_[i]->map_point_.expired()) {
-            // 左图的特征点未关联地图点，尝试三角化
-            Vec3 pworld = camera_->pixel2world(Vec2(current_frame_->features_[i]->position_.pt.x,
-                                                    current_frame_->features_[i]->position_.pt.y),
+            // 左图的特征点未关联地图点，读出深度转为坐标
+            Vec3 pworld = camera_->pixel2world(current_frame_->features_[i]->get_vec2(),
                                                camera_->pose_,// Identity SE3
                                                current_frame_->features_[i]->init_depth_); // use depth sensor only to init
 

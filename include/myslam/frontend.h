@@ -102,7 +102,7 @@ class Frontend {
      * Triangulate the 2D points in current frame
      * @return num of triangulated points
      */
-    int TriangulateNewPoints();
+    int InitializeNewPoints();
 
     /**
      * Set the features in keyframe as new observation of the map points

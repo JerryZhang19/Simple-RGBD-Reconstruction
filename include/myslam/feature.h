@@ -39,6 +39,7 @@ struct Feature {
         : frame_(frame), position_(kp) {}
     Feature(std::shared_ptr<Frame> frame, const cv::KeyPoint &kp, double init_depth)
             : frame_(frame), position_(kp), init_depth_(init_depth){}
+    Vec2 get_vec2(){return Vec2(position_.pt.x,position_.pt.y);}    
 };
 }  // namespace myslam
 
