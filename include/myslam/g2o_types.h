@@ -152,6 +152,62 @@ class EdgeProjection
 };
 
 
+
+class EdgeSE3XYZ
+        : public g2o::BaseBinaryEdge<3, Vec3, VertexPose, VertexXYZ> {
+public:
+    EIGEN_MAKE_ALIGNED_OPERATOR_NEW;
+
+    EdgeSE3XYZ(){}
+
+    virtual void computeError() override {
+        const VertexPose *v0 = static_cast<VertexPose *>(_vertices[0]);
+        const VertexXYZ *v1 = static_cast<VertexXYZ *>(_vertices[1]);
+        SE3 T = v0->estimate();
+        Vec3 pos_pixel =  (T * v1->estimate());
+        //pos_pixel /= pos_pixel[2];
+        _error = _measurement - pos_pixel;
+    }
+
+    virtual void linearizeOplus() override {
+        const VertexPose *v0 = static_cast<VertexPose *>(_vertices[0]);
+        const VertexXYZ *v1 = static_cast<VertexXYZ *>(_vertices[1]);
+        const SE3 &T = v0->estimate();
+        const Vec3 &pw = v1->estimate();
+        Vec3 pos_cam =  T * pw;
+        //double fx = _K(0, 0);
+        //double fy = _K(1, 1);
+        double X = pos_cam[0];
+        double Y = pos_cam[1];
+        double Z = pos_cam[2];
+        double Zinv = 1.0 / (Z + 1e-18);
+        double Zinv2 = Zinv * Zinv;
+        /*
+        _jacobianOplusXi << -fx * Zinv, 0, fx * X * Zinv2, fx * X * Y * Zinv2,
+                -fx - fx * X * X * Zinv2, fx * Y * Zinv, 0, -fy * Zinv,
+                fy * Y * Zinv2, fy + fy * Y * Y * Zinv2, -fy * X * Y * Zinv2,
+                -fy * X * Zinv;
+        */
+
+
+        _jacobianOplusXi<<  -1,     0,      0,      0,      Z,      -Y,
+                            0,      -1,     0,      -Z,     0,      X,
+                            0,      0,      -1,     Y,      -X,     0;
+
+
+        _jacobianOplusXj = _jacobianOplusXi.block<3, 3>(0, 0)  * T.rotationMatrix();
+    }
+
+    virtual bool read(std::istream &in) override { return true; }
+
+    virtual bool write(std::ostream &out) const override { return true; }
+
+private:
+};
+
+
+
+
 }  // namespace myslam
 
 #endif  // MYSLAM_G2O_TYPES_H

@@ -15,10 +15,7 @@
   <component name="ChangeListManager">
     <list default="true" id="101b3c9f-0fdd-401c-a7c2-7f099e00f5c0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/myslam/feature.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/myslam/feature.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/myslam/frontend.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/myslam/frontend.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/include/myslam/g2o_types.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/myslam/g2o_types.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +75,8 @@
       <workItem from="1584421739063" duration="12662000" />
       <workItem from="1584500122026" duration="15939000" />
       <workItem from="1584999104082" duration="6619000" />
-      <workItem from="1585257893842" duration="6712000" />
+      <workItem from="1585257893842" duration="11782000" />
+      <workItem from="1585342497996" duration="2469000" />
     </task>
     <servers />
   </component>

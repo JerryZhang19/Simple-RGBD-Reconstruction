@@ -37,7 +37,7 @@ void Backend::BackendLoop() {
         /// 后端仅优化激活的Frames和Landmarks
         Map::KeyframesType active_kfs = map_->GetActiveKeyFrames();
         Map::LandmarksType active_landmarks = map_->GetActiveMapPoints();
-        //Optimize(active_kfs, active_landmarks);
+        Optimize(active_kfs, active_landmarks);
     }
 }
 
