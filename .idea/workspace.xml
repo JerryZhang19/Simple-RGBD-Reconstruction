@@ -16,6 +16,9 @@
     <list default="true" id="101b3c9f-0fdd-401c-a7c2-7f099e00f5c0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/include/myslam/g2o_types.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/myslam/g2o_types.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/libsimpleslam.so" beforeDir="false" afterPath="$PROJECT_DIR$/lib/libsimpleslam.so" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +43,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ORB_SLAM2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../slambook2/ch13" />
     <property name="settings.editor.selected.configurable" value="CMakeSettings" />
   </component>
   <component name="RunManager" selected="Google Test.realsense_simpleslam">
@@ -56,8 +59,8 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Google Test.realsense_simpleslam" />
       <item itemvalue="CMake Application.simpleslam" />
+      <item itemvalue="Google Test.realsense_simpleslam" />
     </list>
   </component>
   <component name="SvnConfiguration">
@@ -76,7 +79,7 @@
       <workItem from="1584500122026" duration="15939000" />
       <workItem from="1584999104082" duration="6619000" />
       <workItem from="1585257893842" duration="11782000" />
-      <workItem from="1585342497996" duration="2469000" />
+      <workItem from="1585342497996" duration="21048000" />
     </task>
     <servers />
   </component>
@@ -88,26 +91,42 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="451" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1585001508117" />
-    <state x="593" y="202" width="586" height="588" key="FileChooserDialogImpl" timestamp="1585285555677">
+    <state x="593" y="202" width="586" height="588" key="FileChooserDialogImpl" timestamp="1585353012537">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="593" y="202" width="586" height="588" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1585285555677" />
-    <state width="1853" height="184" key="GridCell.Tab.0.bottom" timestamp="1585025368402">
+    <state x="593" y="202" width="586" height="588" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1585353012537" />
+    <state width="1853" height="211" key="GridCell.Tab.0.bottom" timestamp="1585373123233">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1853" height="184" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1585025368402" />
-    <state width="1853" height="184" key="GridCell.Tab.0.center" timestamp="1585025368402">
+    <state width="1853" height="211" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1585373123233" />
+    <state width="1853" height="211" key="GridCell.Tab.0.center" timestamp="1585373123233">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1853" height="184" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1585025368402" />
-    <state width="1853" height="184" key="GridCell.Tab.0.left" timestamp="1585025368402">
+    <state width="1853" height="211" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1585373123233" />
+    <state width="1853" height="211" key="GridCell.Tab.0.left" timestamp="1585373123233">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1853" height="184" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1585025368402" />
-    <state width="1853" height="184" key="GridCell.Tab.0.right" timestamp="1585025368402">
+    <state width="1853" height="211" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1585373123233" />
+    <state width="1853" height="211" key="GridCell.Tab.0.right" timestamp="1585373123233">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1853" height="184" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1585025368402" />
+    <state width="1853" height="211" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1585373123233" />
+    <state width="1853" height="353" key="GridCell.Tab.1.bottom" timestamp="1585372070239">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1853" height="353" key="GridCell.Tab.1.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1585372070239" />
+    <state width="1853" height="353" key="GridCell.Tab.1.center" timestamp="1585372070238">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1853" height="353" key="GridCell.Tab.1.center/67.27.1853.1053@67.27.1853.1053" timestamp="1585372070238" />
+    <state width="1853" height="353" key="GridCell.Tab.1.left" timestamp="1585372070238">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1853" height="353" key="GridCell.Tab.1.left/67.27.1853.1053@67.27.1853.1053" timestamp="1585372070238" />
+    <state width="1853" height="353" key="GridCell.Tab.1.right" timestamp="1585372070238">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1853" height="353" key="GridCell.Tab.1.right/67.27.1853.1053@67.27.1853.1053" timestamp="1585372070238" />
     <state x="482" y="187" key="SettingsEditor" timestamp="1585001593422">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -116,9 +135,9 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="649" y="380" key="com.intellij.ide.util.TipDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1585260171968" />
-    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1584231829390">
+    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1585372373082">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1584231829390" />
+    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1585372373082" />
   </component>
 </project>

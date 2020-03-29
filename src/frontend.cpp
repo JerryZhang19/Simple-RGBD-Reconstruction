@@ -87,13 +87,9 @@ bool Frontend::InsertKeyframe() {
     SetObservationsForKeyFrame();
     DetectFeatures();  // detect new features
 
-    // track in right image
-    //FindFeaturesInRight();
     InitializeNewPoints();
     // update backend because we have a new keyframe
-    LOG(INFO) << "Backend update map start:";
     backend_->UpdateMap();
-    LOG(INFO) << "Backend update map end:";
 
     if (viewer_) viewer_->UpdateMap();
 
@@ -177,7 +173,7 @@ int Frontend::EstimateCurrentPose() {
     }
 
     // estimate the Pose the determine the outliers
-    const double chi2_th = 5.991;
+    const double chi2_th = 80;
     int cnt_outlier = 0;
     for (int iteration = 0; iteration < 4; ++iteration) {
         vertex_pose->setEstimate(current_frame_->Pose());
@@ -239,7 +235,7 @@ int Frontend::TrackLastFrame() {
             kps_last.push_back(kp->position_.pt);
             kps_current.push_back(cv::Point2f(px[0], px[1]));
         } else {
-            std::cout<<"actually I don't understand why this part can be called yet"<<std::endl;
+            //tracking already lost
             kps_last.push_back(kp->position_.pt);
             kps_current.push_back(kp->position_.pt);
         }
@@ -259,7 +255,9 @@ int Frontend::TrackLastFrame() {
     for (size_t i = 0; i < status.size(); ++i) {
         if (status[i]) {
             cv::KeyPoint kp(kps_current[i], 7);
-            Feature::Ptr feature(new Feature(current_frame_, kp));
+            auto position = cv::Point2d(kp.pt);
+            int depth = current_frame_->depth_.at<unsigned short>(position);
+            Feature::Ptr feature(new Feature(current_frame_, kp,double(depth)/1000.0));
             feature->map_point_ = last_frame_->features_[i]->map_point_;
             current_frame_->features_.push_back(feature);
             num_good_pts++;
@@ -384,7 +382,7 @@ bool Frontend::BuildInitMap() {
                 current_frame_->features_[i]->position_.pt.y),
                 camera_->pose_,// Identity SE3
                 current_frame_->features_[i]->init_depth_); // use depth sensor only to init
-        std::cout<<"pworld:"<<pworld<<std::endl;
+        //std::cout<<"pworld:"<<pworld<<std::endl;
 
         auto new_map_point = MapPoint::CreateNewMappoint();
         new_map_point->SetPos(pworld);
@@ -406,6 +404,7 @@ bool Frontend::BuildInitMap() {
 
 bool Frontend::Reset() {
     LOG(INFO) << "Reset is not implemented. ";
+    std::exit(0);
     return true;
 }
 

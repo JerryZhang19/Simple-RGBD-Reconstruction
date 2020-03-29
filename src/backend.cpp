@@ -74,14 +74,11 @@ void Backend::Optimize(Map::KeyframesType &keyframes,
     std::map<unsigned long, VertexXYZ *> vertices_landmarks;
 
     // K 和左右外参
-    Mat33 K = cam_->K();
-    SE3 ext = cam_->pose();// Identity
-    LOG(INFO) << "Backend K "<< K;
 
     // edges
     int index = 1;
-    double chi2_th = 5.991;  // robust kernel 阈值
-    std::map<EdgeProjection *, Feature::Ptr> edges_and_features;
+    double chi2_th = 0.4;  // robust kernel 阈值
+    std::map<EdgeSE3XYZ *, Feature::Ptr> edges_and_features;
 
     for (auto &landmark : landmarks) {
         if (landmark.second->is_outlier_) continue;
@@ -93,7 +90,7 @@ void Backend::Optimize(Map::KeyframesType &keyframes,
             if (feat->is_outlier_ || feat->frame_.lock() == nullptr) continue;
 
             auto frame = feat->frame_.lock();
-            EdgeProjection * edge = new EdgeProjection(K, ext);
+            EdgeSE3XYZ * edge = new EdgeSE3XYZ();
 
             // 如果landmark还没有被加入优化，则新加一个顶点
             if (vertices_landmarks.find(landmark_id) ==
@@ -109,8 +106,8 @@ void Backend::Optimize(Map::KeyframesType &keyframes,
             edge->setId(index);
             edge->setVertex(0, vertices.at(frame->keyframe_id_));    // pose
             edge->setVertex(1, vertices_landmarks.at(landmark_id));  // landmark
-            edge->setMeasurement(toVec2(feat->position_.pt));
-            edge->setInformation(Mat22::Identity());
+            edge->setMeasurement(cam_->pixel2camera(toVec2(feat->position_.pt),feat->init_depth_));
+            edge->setInformation(Mat33::Identity());
             auto rk = new g2o::RobustKernelHuber();
             rk->setDelta(chi2_th);
             edge->setRobustKernel(rk);
@@ -120,11 +117,10 @@ void Backend::Optimize(Map::KeyframesType &keyframes,
 
             index++;
         }
-        LOG(INFO) << "Index "<< index;
     }
 
-    // do optimization and eliminate the outliers
     optimizer.initializeOptimization();
+
     optimizer.optimize(10);
 
     int cnt_outlier = 0, cnt_inlier = 0;
@@ -147,7 +143,6 @@ void Backend::Optimize(Map::KeyframesType &keyframes,
             chi2_th *= 2;
             iteration++;
         }
-        LOG(INFO)<<"Backend outlier count"<<cnt_outlier<<"inlier:"<<cnt_inlier;
     }
 
     for (auto &ef : edges_and_features) {
@@ -160,13 +155,15 @@ void Backend::Optimize(Map::KeyframesType &keyframes,
         }
     }
 
-    LOG(INFO) << "Outlier/Inlier in optimization: " << cnt_outlier << "/"
+    LOG(INFO) << "Outlier/Inlier in backend optimization: " << cnt_outlier << "/"
               << cnt_inlier;
+    LOG(INFO)<< "Bakckend Landmarks Count:"<<landmarks.size();
 
-    // Set pose and lanrmark position
+
     for (auto &v : vertices) {
         keyframes.at(v.first)->SetPose(v.second->estimate());
     }
+
     for (auto &v : vertices_landmarks) {
         landmarks.at(v.first)->SetPos(v.second->estimate());
     }
