@@ -13,13 +13,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="101b3c9f-0fdd-401c-a7c2-7f099e00f5c0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/myslam/g2o_types.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/myslam/g2o_types.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/libsimpleslam.so" beforeDir="false" afterPath="$PROJECT_DIR$/lib/libsimpleslam.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend.cpp" afterDir="false" />
-    </list>
+    <list default="true" id="101b3c9f-0fdd-401c-a7c2-7f099e00f5c0" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,7 +37,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../slambook2/ch13" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../CS184/p3-2-pathtracer-sp20-JerryZhang19" />
     <property name="settings.editor.selected.configurable" value="CMakeSettings" />
   </component>
   <component name="RunManager" selected="Google Test.realsense_simpleslam">
@@ -59,8 +53,8 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="CMake Application.simpleslam" />
       <item itemvalue="Google Test.realsense_simpleslam" />
+      <item itemvalue="CMake Application.simpleslam" />
     </list>
   </component>
   <component name="SvnConfiguration">
@@ -80,6 +74,7 @@
       <workItem from="1584999104082" duration="6619000" />
       <workItem from="1585257893842" duration="11782000" />
       <workItem from="1585342497996" duration="21048000" />
+      <workItem from="1585448490530" duration="42000" />
     </task>
     <servers />
   </component>
@@ -91,10 +86,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="451" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1585001508117" />
-    <state x="593" y="202" width="586" height="588" key="FileChooserDialogImpl" timestamp="1585353012537">
+    <state x="593" y="202" width="586" height="588" key="FileChooserDialogImpl" timestamp="1585448530327">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="593" y="202" width="586" height="588" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1585353012537" />
+    <state x="593" y="202" width="586" height="588" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1585448530327" />
     <state width="1853" height="211" key="GridCell.Tab.0.bottom" timestamp="1585373123233">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
