@@ -8,6 +8,9 @@
 #include "myslam/frontend.h"
 #include "myslam/viewer.h"
 
+#include "myslam/mapping.h"
+
+
 namespace simpleslam {
 
 /**
@@ -55,6 +58,13 @@ class VisualOdometry {
 
     // dataset
     Dataset::Ptr dataset_ = nullptr;
+
+    //mapping related
+    Mapping::Ptr mapping_ = nullptr;
+
+    double timer1=0;
+    double timer2=0;
+    double timer3=0;
 };
 }  // namespace myslam
 

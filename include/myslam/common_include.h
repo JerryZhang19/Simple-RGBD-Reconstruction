@@ -20,11 +20,7 @@
 // define the commonly included file to avoid a long include list
 #include <Eigen/Core>
 #include <Eigen/Geometry>
-#include <pcl/point_types.h>
-#include <pcl/io/pcd_io.h>
-#include <pcl/filters/voxel_grid.h>
-#include <pcl/visualization/pcl_visualizer.h>
-#include <pcl/filters/statistical_outlier_removal.h>
+
 
 
 // typedefs for eigen

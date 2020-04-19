@@ -91,4 +91,10 @@ bool Dataset::SavePose(Frame::Ptr current_frame)
     myfile.close();
 }
 
+bool Dataset::SavePointCloud(Mapping::PointCloud::Ptr pcd)
+{
+    boost::format pcd_fmt("%s/pointcloud/%05d.pcd");
+    pcl::io::savePCDFileASCII ((pcd_fmt % dataset_path_  % current_image_index_).str(), *pcd);
+}
+
 }  // namespace myslam

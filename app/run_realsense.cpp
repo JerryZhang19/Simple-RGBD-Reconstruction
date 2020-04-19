@@ -14,7 +14,7 @@ int main(int argc, char **argv) {
     simpleslam::VisualOdometry::Ptr vo(
         new simpleslam::VisualOdometry(FLAGS_config_file));
     assert(vo->Init() == true);
-    vo->SavePose(true);
+    vo->SavePose(false);
     vo->SavePointCloud(true);
 
     vo->Run();

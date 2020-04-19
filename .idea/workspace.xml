@@ -14,22 +14,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="101b3c9f-0fdd-401c-a7c2-7f099e00f5c0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../include/myslam/mapping.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/mapping.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../app/run_realsense.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/run_realsense.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../bin/realsense_simpleslam" beforeDir="false" afterPath="$PROJECT_DIR$/../../bin/realsense_simpleslam" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../include/myslam/camera.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../include/myslam/camera.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../include/myslam/common_include.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../include/myslam/common_include.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../include/myslam/dataset.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../include/myslam/dataset.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../include/myslam/mapping.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../include/myslam/mapping.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../include/myslam/visual_odometry.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../include/myslam/visual_odometry.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../lib/libsimpleslam.so" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/libsimpleslam.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../src/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../src/backend.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/backend.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../src/dataset.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/dataset.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../src/frontend.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/frontend.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/mapping.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/mapping.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../src/visual_odometry.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/visual_odometry.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -101,7 +95,7 @@
       <workItem from="1586771992061" duration="5000" />
       <workItem from="1587254329875" duration="7162000" />
       <workItem from="1587267833373" duration="4360000" />
-      <workItem from="1587278229331" duration="1886000" />
+      <workItem from="1587278229331" duration="13027000" />
     </task>
     <servers />
   </component>
@@ -117,22 +111,22 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="593" y="202" width="586" height="588" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1587275151456" />
-    <state width="1853" height="201" key="GridCell.Tab.0.bottom" timestamp="1587279528360">
+    <state width="1853" height="63" key="GridCell.Tab.0.bottom" timestamp="1587290851967">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1853" height="201" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1587279528360" />
-    <state width="1853" height="201" key="GridCell.Tab.0.center" timestamp="1587279528360">
+    <state width="1853" height="63" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1587290851967" />
+    <state width="1853" height="63" key="GridCell.Tab.0.center" timestamp="1587290851967">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1853" height="201" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1587279528360" />
-    <state width="1853" height="201" key="GridCell.Tab.0.left" timestamp="1587279528360">
+    <state width="1853" height="63" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1587290851967" />
+    <state width="1853" height="63" key="GridCell.Tab.0.left" timestamp="1587290851967">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1853" height="201" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1587279528360" />
-    <state width="1853" height="201" key="GridCell.Tab.0.right" timestamp="1587279528360">
+    <state width="1853" height="63" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1587290851967" />
+    <state width="1853" height="63" key="GridCell.Tab.0.right" timestamp="1587290851967">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1853" height="201" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1587279528360" />
+    <state width="1853" height="63" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1587290851967" />
     <state width="1853" height="353" key="GridCell.Tab.1.bottom" timestamp="1585372070239">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -161,9 +155,9 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="657" y="253" key="run.anything.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1586771710499" />
-    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1585372373082">
+    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1587282578428">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1585372373082" />
+    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1587282578428" />
   </component>
 </project>

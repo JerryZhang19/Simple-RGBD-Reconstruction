@@ -1,8 +1,13 @@
 #ifndef MYSLAM_DATASET_H
 #define MYSLAM_DATASET_H
+
 #include "myslam/camera.h"
 #include "myslam/common_include.h"
 #include "myslam/frame.h"
+#include <pcl/point_types.h>
+#include <pcl/io/pcd_io.h>
+
+#include "mapping.h"
 
 namespace simpleslam {
 
@@ -29,6 +34,9 @@ class Dataset {
     }
 
     bool SavePose(Frame::Ptr current_frame);
+    bool SavePointCloud(Mapping::PointCloud::Ptr pcd);
+
+    int GetIndex(){return current_image_index_;}
 
    private:
     std::string dataset_path_;
