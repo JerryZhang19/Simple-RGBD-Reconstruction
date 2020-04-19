@@ -43,7 +43,7 @@ bool VisualOdometry::Init() {
 
 void VisualOdometry::Run() {
     while (1) {
-        LOG(INFO) << "VO is running";
+        //LOG(INFO) << "VO is running";
         if (Step() == false) {
             break;
         }
@@ -65,6 +65,9 @@ bool VisualOdometry::Step() {
     auto time_used =
         std::chrono::duration_cast<std::chrono::duration<double>>(t2 - t1);
     LOG(INFO) << "VO cost time: " << time_used.count() << " seconds.";
+
+    if(save_pose_)
+        dataset_->SavePose(new_frame);
     return success;
 }
 

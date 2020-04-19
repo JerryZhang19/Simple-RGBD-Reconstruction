@@ -81,4 +81,14 @@ Frame::Ptr Dataset::NextFrame() {
     return new_frame;
 }
 
+bool Dataset::SavePose(Frame::Ptr current_frame)
+{
+    boost::format pose_fmt("%s/pose/%05d.txt");
+    SE3 pose = current_frame->Pose();
+    std::ofstream myfile;
+    myfile.open ((pose_fmt % dataset_path_  % current_image_index_).str());
+    myfile << pose.rotationMatrix()<<'\n'<<pose.translation();
+    myfile.close();
+}
+
 }  // namespace myslam

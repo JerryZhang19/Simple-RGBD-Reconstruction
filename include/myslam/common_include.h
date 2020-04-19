@@ -20,6 +20,12 @@
 // define the commonly included file to avoid a long include list
 #include <Eigen/Core>
 #include <Eigen/Geometry>
+#include <pcl/point_types.h>
+#include <pcl/io/pcd_io.h>
+#include <pcl/filters/voxel_grid.h>
+#include <pcl/visualization/pcl_visualizer.h>
+#include <pcl/filters/statistical_outlier_removal.h>
+
 
 // typedefs for eigen
 // double matricies
@@ -32,6 +38,7 @@ typedef Eigen::Matrix<double, 6, 6> Mat66;
 typedef Eigen::Matrix<double, 5, 3> Mat53;
 typedef Eigen::Matrix<double, 4, 3> Mat43;
 typedef Eigen::Matrix<double, 4, 2> Mat42;
+typedef Eigen::Matrix<double, 3, 3> Mat33;
 typedef Eigen::Matrix<double, 3, 3> Mat33;
 typedef Eigen::Matrix<double, 2, 2> Mat22;
 typedef Eigen::Matrix<double, 8, 8> Mat88;

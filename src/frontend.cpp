@@ -45,7 +45,6 @@ bool Frontend::AddFrame(simpleslam::Frame::Ptr frame) {
 }
 
 bool Frontend::Track() {
-    LOG(INFO)<<"Track() starts";
     if (last_frame_) {
         current_frame_->SetPose(relative_motion_ * last_frame_->Pose());
     }
@@ -68,7 +67,6 @@ bool Frontend::Track() {
     relative_motion_ = current_frame_->Pose() * last_frame_->Pose().inverse();
 
     if (viewer_) viewer_->AddCurrentFrame(current_frame_);
-    LOG(INFO)<<"Track() ends";
     return true;
 }
 
@@ -200,16 +198,14 @@ int Frontend::EstimateCurrentPose() {
                 e->setRobustKernel(nullptr);
             }
         }
-        LOG(INFO) << "Outlier/Inlier in pose estimating: " << cnt_outlier << "/"
-                  << features.size() - cnt_outlier;
     }
 
-    LOG(INFO) << "Outlier/Inlier in pose estimating: " << cnt_outlier << "/"
-              << features.size() - cnt_outlier;
+    //LOG(INFO) << "Outlier/Inlier in pose estimating: " << cnt_outlier << "/"
+    //          << features.size() - cnt_outlier;
     // Set pose and outlier
     current_frame_->SetPose(vertex_pose->estimate());
 
-    LOG(INFO) << "Current Pose = \n" << current_frame_->Pose().matrix();
+    //LOG(INFO) << "Current Pose = \n" << current_frame_->Pose().matrix();
 
     for (auto &feat : features) {
         if (feat->is_outlier_) {
@@ -264,7 +260,7 @@ int Frontend::TrackLastFrame() {
         }
     }
 
-    LOG(INFO) << "Find " << num_good_pts << " in the last image.";
+    //LOG(INFO) << "Find " << num_good_pts << " in the last image.";
     return num_good_pts;
 }
 

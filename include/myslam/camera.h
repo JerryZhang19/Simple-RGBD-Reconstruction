@@ -17,6 +17,8 @@ class Camera {
            baseline_ = 0;  // Camera intrinsics
     SE3 pose_;             // extrinsic, from stereo camera to single camera
     SE3 pose_inv_;         // inverse of extrinsics
+    int min_depth = 50;     //5cm
+    int max_depth = 12000;   //12 m
 
     Camera();
 

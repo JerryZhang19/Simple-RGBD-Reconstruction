@@ -39,9 +39,13 @@ class VisualOdometry {
 
     /// 获取前端状态
     FrontendStatus GetFrontendStatus() const { return frontend_->GetStatus(); }
-
+    void SavePose(bool flag) {save_pose_ = flag;}
+    void SavePointCloud(bool flag) {save_point_cloud=flag;}
    private:
     bool inited_ = false;
+    bool save_pose_=false;
+    bool save_point_cloud = false;
+
     std::string config_file_path_;
 
     Frontend::Ptr frontend_ = nullptr;

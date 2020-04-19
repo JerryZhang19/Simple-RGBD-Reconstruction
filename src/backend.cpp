@@ -43,7 +43,6 @@ void Backend::BackendLoop() {
 
 void Backend::Optimize(Map::KeyframesType &keyframes,
                        Map::LandmarksType &landmarks) {
-    LOG(INFO) << "Backend optimization called";
     // setup g2o
     typedef g2o::BlockSolver_6_3 BlockSolverType;
     typedef g2o::LinearSolverCSparse<BlockSolverType::PoseMatrixType>
@@ -77,7 +76,7 @@ void Backend::Optimize(Map::KeyframesType &keyframes,
 
     // edges
     int index = 1;
-    double chi2_th = 0.4;  // robust kernel 阈值
+    double chi2_th = 0.4;  // robust kernel threshold   Notice that loss is measured in meter.
     std::map<EdgeSE3XYZ *, Feature::Ptr> edges_and_features;
 
     for (auto &landmark : landmarks) {

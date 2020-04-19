@@ -1,5 +1,6 @@
 //
 // Created by gaoxiang on 19-5-4.
+// modified by jianwei zhang
 //
 
 #include <gflags/gflags.h>
@@ -13,6 +14,9 @@ int main(int argc, char **argv) {
     simpleslam::VisualOdometry::Ptr vo(
         new simpleslam::VisualOdometry(FLAGS_config_file));
     assert(vo->Init() == true);
+    vo->SavePose(true);
+    vo->SavePointCloud(true);
+
     vo->Run();
 
     return 0;

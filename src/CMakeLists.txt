@@ -9,7 +9,8 @@ add_library(simpleslam SHARED
         backend.cpp
         viewer.cpp
         visual_odometry.cpp
-        dataset.cpp)
+        dataset.cpp
+        mapping.cpp)
 
 target_link_libraries(simpleslam
         ${THIRD_PARTY_LIBS})

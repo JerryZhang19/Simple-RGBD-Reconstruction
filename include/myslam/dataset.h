@@ -28,6 +28,8 @@ class Dataset {
         return cameras_.at(camera_id);
     }
 
+    bool SavePose(Frame::Ptr current_frame);
+
    private:
     std::string dataset_path_;
     int current_image_index_ = 0;
