@@ -40,6 +40,7 @@ Code framework of RGB-D Visual Odometry part is inherited from slambook2 ch13 (s
 * Eigen3,
 
         sudo apt-get install libeigen3-dev
+* Opencv,
 
 * SuiteSparse and CXSparse,
 
