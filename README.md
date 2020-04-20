@@ -1,8 +1,10 @@
 # A Simple Sparse Odometry Based RGBD Reconstruction
 
-The project use Intel Realsense D435i RGB-D sensor. Pointcloud Reconstruction is working now. 
+This project uses Intel Realsense D435i RGB-D sensor. Here is some preliminary pointcloud reconstruction result.
 
-Odometry part uses optical flow tracking and bundle adjustment optimization using g2o.
+Odometry part uses optical flow tracking and bundle adjustment optimization implemented in g2o.
+
+This repo focuses on mapping, here is another repo that focuses on odometry and uses similar code structure. https://github.com/JerryZhang19/Realsense_RGBD_Odometry
 
 ![](images/example.png)
 
@@ -17,9 +19,6 @@ Loop Closure
 
 Sparse map saving in a way suitable for relocalization.
 
-## Related work
-
-A realtime Visual Odometry using D435i: https://github.com/JerryZhang19/Realsense_RGBD_Odometry
 
 ## Reference
 
