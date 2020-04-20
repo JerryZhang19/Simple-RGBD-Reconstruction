@@ -25,7 +25,7 @@ slambook2 https://github.com/gaoxiang12/slambook2 gives a great introduction to 
 
 Code framework of RGB-D Visual Odometry part is inherited from slambook2 ch13 (streo odometry).
 
-## DEPENDENCY
+## Dependency
 
 * CMake,
 
