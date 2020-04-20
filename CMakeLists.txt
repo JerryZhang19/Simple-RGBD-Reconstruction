@@ -50,6 +50,10 @@ include_directories(${CSPARSE_INCLUDE_DIR})
 find_package(PCL  REQUIRED)
 include_directories(${PCL_INCLUDE_DIRS})
 
+#intel realsense
+find_package(realsense2 REQUIRED)
+include_directories(${realsense2_INCLUDE_DIRS})
+
 set(THIRD_PARTY_LIBS
         ${OpenCV_LIBS}
         ${Sophus_LIBRARIES}
@@ -61,6 +65,7 @@ set(THIRD_PARTY_LIBS
         pthread
         ${CSPARSE_LIBRARY}
         ${PCL_LIBRARIES}
+        realsense2
         )
 
 enable_testing()

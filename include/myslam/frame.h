@@ -31,7 +31,7 @@ struct Frame {
     double time_stamp_;              // 时间戳，暂不使用
     SE3 pose_;                       // Tcw 形式Pose
     std::mutex pose_mutex_;          // Pose数据锁
-    cv::Mat img_, depth_;   // rgbd image
+    cv::Mat img_, depth_,color_;   // rgbd image
 
     // extracted features in left image
     std::vector<std::shared_ptr<Feature>> features_;

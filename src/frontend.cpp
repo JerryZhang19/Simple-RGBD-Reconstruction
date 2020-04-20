@@ -231,7 +231,7 @@ int Frontend::TrackLastFrame() {
             kps_last.push_back(kp->position_.pt);
             kps_current.push_back(cv::Point2f(px[0], px[1]));
         } else {
-            //tracking already lost
+            // rejected by optimization, will be reused when keyframe inserted
             kps_last.push_back(kp->position_.pt);
             kps_current.push_back(kp->position_.pt);
         }
@@ -297,10 +297,8 @@ int Frontend::DetectFeatures() {
     gftt_->detect(current_frame_->img_, keypoints, mask);
     int cnt_detected = 0;
     for (auto &kp : keypoints) {
-        //std::cout<<"debug: kp.pt"<<kp.pt<<std::endl;
         auto position = cv::Point2d(kp.pt);
         int depth = current_frame_->depth_.at<unsigned short>(position);
-        //std::cout<<"index:"<<cv::Point2d(kp.pt)<<std::endl;
 
         if(depth<=Frame::max_depth&&depth>=Frame::min_depth)
         {
@@ -311,53 +309,9 @@ int Frontend::DetectFeatures() {
         }
     }
 
-    LOG(INFO) << "Detect " << cnt_detected << " new features";
     return cnt_detected;
 }
 
-/*
-int Frontend::FindFeaturesInRight() {
-    // use LK flow to estimate points in the right image
-    std::vector<cv::Point2f> kps_left, kps_right;
-    for (auto &kp : current_frame_->features_left_) {
-        kps_left.push_back(kp->position_.pt);
-        auto mp = kp->map_point_.lock();
-        if (mp) {
-            // use projected points as initial guess
-            auto px =
-                camera_right_->world2pixel(mp->pos_, current_frame_->Pose());
-            kps_right.push_back(cv::Point2f(px[0], px[1]));
-        } else {
-            // use same pixel in left iamge
-            kps_right.push_back(kp->position_.pt);
-        }
-    }
-
-    std::vector<uchar> status;
-    Mat error;
-    cv::calcOpticalFlowPyrLK(
-        current_frame_->left_img_, current_frame_->right_img_, kps_left,
-        kps_right, status, error, cv::Size(11, 11), 3,
-        cv::TermCriteria(cv::TermCriteria::COUNT + cv::TermCriteria::EPS, 30,
-                         0.01),
-        cv::OPTFLOW_USE_INITIAL_FLOW);
-
-    int num_good_pts = 0;
-    for (size_t i = 0; i < status.size(); ++i) {
-        if (status[i]) {
-            cv::KeyPoint kp(kps_right[i], 7);
-            Feature::Ptr feat(new Feature(current_frame_, kp));
-            feat->is_on_left_image_ = false;
-            current_frame_->features_right_.push_back(feat);
-            num_good_pts++;
-        } else {
-            current_frame_->features_right_.push_back(nullptr);
-        }
-    }
-    LOG(INFO) << "Find " << num_good_pts << " in the right image.";
-    return num_good_pts;
-}
-*/
 
 bool Frontend::BuildInitMap() {
     //SE3 pose= camera_->pose();

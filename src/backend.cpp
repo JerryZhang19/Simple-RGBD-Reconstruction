@@ -156,7 +156,6 @@ void Backend::Optimize(Map::KeyframesType &keyframes,
 
     LOG(INFO) << "Outlier/Inlier in backend optimization: " << cnt_outlier << "/"
               << cnt_inlier;
-    LOG(INFO)<< "Bakckend Landmarks Count:"<<landmarks.size();
 
 
     for (auto &v : vertices) {

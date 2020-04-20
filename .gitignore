@@ -1,6 +1,7 @@
 cmake-build-debug/
 cmake-build-release/
 data/
-.idea/
+.idea
 bin/
 lib/
+*.zip
