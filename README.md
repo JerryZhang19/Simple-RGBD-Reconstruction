@@ -1,8 +1,29 @@
 # A Simple Sparse Odometry Based RGBD Reconstruction
 
-RGBD Sparse Visual Odometry Working now.
-Reconstruction still in progress.
+The project use Intel Realsense D435i RGB-D sensor. Pointcloud Reconstruction is working now. 
 
+Odometry part uses optical flow tracking and bundle adjustment optimization using g2o.
+
+## Ongoing work
+Other reconstruction method like TSDF and Mesh
+
+GPU Reconstruction and realtime paralell reconstruction and localization.
+
+## Future work
+
+Loop Closure
+
+Sparse map saving in a way suitable for relocalization.
+
+## Related work
+
+A realtime Visual Odometry using D435i: https://github.com/JerryZhang19/Realsense_RGBD_Odometry
+
+## Reference
+
+slambook2 https://github.com/gaoxiang12/slambook2 gives a great introduction to Visual SLAM.
+
+Code framework of RGB-D Visual Odometry part is inherited from slambook2 ch13 (streo odometry).
 
 ## DEPENDENCY
 
@@ -41,6 +62,8 @@ Reconstruction still in progress.
 * pcl,
 
         sudo apt-get install libpcl-dev pcl-tools
+* librealsense,
 
+        https://github.com/IntelRealSense/librealsense
        
       
