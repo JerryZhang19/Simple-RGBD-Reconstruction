@@ -4,6 +4,8 @@ The project use Intel Realsense D435i RGB-D sensor. Pointcloud Reconstruction is
 
 Odometry part uses optical flow tracking and bundle adjustment optimization using g2o.
 
+![](images/example.png)
+
 ## Ongoing work
 Other reconstruction method like TSDF and Mesh
 
