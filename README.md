@@ -46,11 +46,15 @@ Code framework of RGB-D Visual Odometry part is inherited from slambook2 ch13 (s
 
         sudo apt-get install libsuitesparse-dev
 
-* Boost,
+* Boost, for format string
 
         sudo apt-get install libboost-dev libboost-filesystem-dev
 
-* Pangolin, 
+* Sophus, for Lie Group computation
+
+        https://github.com/strasdat/Sophus
+        
+* Pangolin, for SLAM visualization
 
         git clone https://github.com/stevenlovegrove/Pangolin.git
         cd Pangolin
@@ -59,13 +63,13 @@ Code framework of RGB-D Visual Odometry part is inherited from slambook2 ch13 (s
         cmake ..
         cmake --build .
         
-* g2o, 
+* g2o,  for Bundle Adjustment 
 
         https://github.com/RainerKuemmerle/g2o
-* pcl,
+* pcl,  for reconstruction
 
         sudo apt-get install libpcl-dev pcl-tools
-* librealsense,
+* librealsense,         for realtime reconstruction
 
         https://github.com/IntelRealSense/librealsense
        
