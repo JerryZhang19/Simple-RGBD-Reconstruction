@@ -9,7 +9,7 @@ This repo focuses on mapping, here is another repo that focuses on odometry and 
 ![](images/example.png)
 
 ## Ongoing work
-Other reconstruction method like TSDF and Mesh
+TSDF voxel hashing and Marching Cube.
 
 GPU Reconstruction and realtime paralell reconstruction and localization.
 
