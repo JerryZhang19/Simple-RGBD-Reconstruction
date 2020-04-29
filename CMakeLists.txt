@@ -54,6 +54,12 @@ include_directories(${PCL_INCLUDE_DIRS})
 find_package(realsense2 REQUIRED)
 include_directories(${realsense2_INCLUDE_DIRS})
 
+message(STATUS "    dir: ${realsense2_LIB}")
+message(STATUS "    dir: ${realsense2_INCLUDE_DIRS}")
+
+message(STATUS "    sophus dir: ${Sophus_INCLUDE_DIRS}")
+message(STATUS "    sophus dir: ${OpenCV_INCLUDE_DIRS}")
+
 set(THIRD_PARTY_LIBS
         ${OpenCV_LIBS}
         ${Sophus_LIBRARIES}

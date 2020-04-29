@@ -65,8 +65,6 @@ bool VisualOdometry::Step() {
     bool success = frontend_->AddFrame(new_frame);
     auto t2 = std::chrono::steady_clock::now();
 
-
-
     if(save_pose_)
         io_->SavePose(new_frame);
 
@@ -81,7 +79,7 @@ bool VisualOdometry::Step() {
         timer2  +=  std::chrono::duration_cast<std::chrono::duration<double>>(t4 - t3).count();
     }
 
-    if(build_map_)
+    if(build_map_&&io_->GetIndex()%10==0)
     {
         auto t3 = std::chrono::steady_clock::now();
         mapping_->merge_with(new_frame,io_->GetCamera(0));
