@@ -6,7 +6,6 @@
 #define MYSLAM_VIEWER_H
 
 #include <thread>
-#include <pangolin/pangolin.h>
 
 #include "myslam/common_include.h"
 #include "myslam/frame.h"
@@ -41,7 +40,7 @@ class Viewer {
 
     void DrawMapPoints();
 
-    void FollowCurrentFrame(pangolin::OpenGlRenderState& vis_camera);
+    void FollowCurrentFrame(std::shared_ptr<Frame> frame);
 
     /// plot the features in current frame into an image
     cv::Mat PlotFrameImage();

@@ -154,8 +154,8 @@ void Backend::Optimize(Map::KeyframesType &keyframes,
         }
     }
 
-    LOG(INFO) << "Outlier/Inlier in backend optimization: " << cnt_outlier << "/"
-              << cnt_inlier;
+    //LOG(INFO) << "Outlier/Inlier in backend optimization: " << cnt_outlier << "/"
+    //          << cnt_inlier;
 
 
     for (auto &v : vertices) {

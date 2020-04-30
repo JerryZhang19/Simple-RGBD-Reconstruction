@@ -9,13 +9,13 @@ using namespace std;
 namespace simpleslam {
 
 IO::IO(const std::string& dataset_path)
-    : dataset_path_(dataset_path) {}
+    : dataset_path_(dataset_path) {Init();}
 
 bool IO::Init() {
     // read camera intrinsics and extrinsics
     ifstream fin(dataset_path_ + "/calib.txt");
     if (!fin) {
-        LOG(ERROR) << "cannot find " << dataset_path_ << "/calib.txt!";
+        std::cout << "cannot find " << dataset_path_ << "/calib.txt!";
         return false;
     }
     int num_camera;
@@ -37,8 +37,8 @@ bool IO::Init() {
         Camera::Ptr new_camera(new Camera(K(0, 0), K(1, 1), K(0, 2), K(1, 2),
                                           t.norm(), SE3(SO3(), t)));
         cameras_.push_back(new_camera);
-        LOG(INFO) <<"camera intrisics:"<<new_camera->K();
-        LOG(INFO) << "Camera " << i << " extrinsics: " << t.transpose();
+        std::cout <<"camera intrisics:"<<new_camera->K();
+        std::cout << "Camera " << i << " extrinsics: " << t.transpose();
     }
     fin.close();
     current_image_index_ = 0;
@@ -80,7 +80,7 @@ Frame::Ptr IO::NextFrame() {
                        cv::IMREAD_UNCHANGED);
 
         if (img.data == nullptr || depth.data == nullptr) {
-            LOG(WARNING) << "cannot find images at index " << current_image_index_;
+            std::cout << "cannot find images at index " << current_image_index_;
             return nullptr;
         }
         new_frame->img_ = img;
@@ -102,11 +102,7 @@ bool IO::SavePose(Frame::Ptr current_frame)
     myfile.close();
 }
 
-bool IO::SavePointCloud(Mapping::PointCloud::Ptr pcd)
-{
-    boost::format pcd_fmt("%s/pointcloud/%05d.pcd");
-    pcl::io::savePCDFileASCII ((pcd_fmt % dataset_path_  % current_image_index_).str(), *pcd);
-}
+
 
 void IO::SetupRealsenseCamera() {
     pipe_ = std::make_shared<rs2::pipeline>();

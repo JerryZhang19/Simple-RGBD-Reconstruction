@@ -5,7 +5,7 @@
 #include "myslam/feature.h"
 #include "myslam/frame.h"
 
-#include <pangolin/pangolin.h>
+//#include <pangolin/pangolin.h>
 #include <opencv2/opencv.hpp>
 
 namespace simpleslam {
@@ -33,6 +33,8 @@ void Viewer::UpdateMap() {
 }
 
 void Viewer::ThreadLoop() {
+    return;
+    /*
     pangolin::CreateWindowAndBind("SimpleSLAM", 1024, 768);
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_BLEND);
@@ -75,8 +77,10 @@ void Viewer::ThreadLoop() {
     }
 
     LOG(INFO) << "Stop viewer";
+     */
 }
 
+/*
 cv::Mat Viewer::PlotFrameImage() {
     cv::Mat img_out;
     cv::cvtColor(current_frame_->img_, img_out, CV_GRAY2BGR);
@@ -159,5 +163,6 @@ void Viewer::DrawMapPoints() {
     }
     glEnd();
 }
+*/
 
 }  // namespace myslam

@@ -79,8 +79,8 @@ bool Frontend::InsertKeyframe() {
     current_frame_->SetKeyFrame();
     map_->InsertKeyFrame(current_frame_);
 
-    LOG(INFO) << "Set frame " << current_frame_->id_ << " as keyframe "
-              << current_frame_->keyframe_id_;
+    //LOG(INFO) << "Set frame " << current_frame_->id_ << " as keyframe "
+    //          << current_frame_->keyframe_id_;
 
     SetObservationsForKeyFrame();
     DetectFeatures();  // detect new features
@@ -123,7 +123,7 @@ int Frontend::InitializeNewPoints()  {
             cnt_triangulated_pts++;
         }
     }
-    LOG(INFO) << "new landmarks: " << cnt_triangulated_pts;
+    //LOG(INFO) << "new landmarks: " << cnt_triangulated_pts;
     return cnt_triangulated_pts;
 }
 
@@ -259,7 +259,6 @@ int Frontend::TrackLastFrame() {
             num_good_pts++;
         }
     }
-
     //LOG(INFO) << "Find " << num_good_pts << " in the last image.";
     return num_good_pts;
 }
@@ -346,14 +345,14 @@ bool Frontend::BuildInitMap() {
     map_->InsertKeyFrame(current_frame_);
     backend_->UpdateMap();
 
-    LOG(INFO) << "Initial map created with " << cnt_init_landmarks
+    std::cout << "Initial map created with " << cnt_init_landmarks
               << " map points";
 
     return true;
 }
 
 bool Frontend::Reset() {
-    LOG(INFO) << "Reset is not implemented. ";
+    //LOG(INFO) << "Reset is not implemented. ";
     std::exit(0);
     return true;
 }

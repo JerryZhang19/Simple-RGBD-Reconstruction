@@ -8,12 +8,12 @@
 #include "myslam/common_include.h"
 #include "myslam/frame.h"
 #include "myslam/camera.h"
-#include <pcl/point_types.h>
-#include <pcl/io/pcd_io.h>
-#include <pcl/filters/voxel_grid.h>
-//#include <pcl/visualization/pcl_visualizer.h>
-#include <pcl/filters/statistical_outlier_removal.h>
-#include <pcl/visualization/cloud_viewer.h>
+#include "myslam/conversion.h"
+#include "Open3D/Integration/ScalableTSDFVolume.h"
+#include "Open3D/Visualization/Utility/DrawGeometry.h"
+#include "Open3D/IO/ClassIO/TriangleMeshIO.h"
+#include "Open3D/IO/ClassIO/ImageIO.h"
+
 
 namespace simpleslam{
 
@@ -21,18 +21,13 @@ namespace simpleslam{
 class Mapping{
 public:
     typedef std::shared_ptr<Mapping> Ptr;
+    typedef open3d::integration::ScalableTSDFVolume TSDF;
+    typedef std::shared_ptr<TSDF> Map_Ptr;
 
-    typedef pcl::PointXYZRGB PointT;
-    typedef pcl::PointCloud<PointT> PointCloud;
-
-    PointCloud::Ptr dense_map;
-    std::shared_ptr<pcl::visualization::CloudViewer> pcd_viewer;
-
+    Map_Ptr dense_map;
 
     Mapping();
     bool merge_with(Frame::Ptr frame, Camera::Ptr camera);
-    PointCloud::Ptr get_pcd(Frame::Ptr frame,Camera::Ptr camera);
-
 };
 
 

@@ -76,7 +76,7 @@ void Map::RemoveOldKeyframe() {
         frame_to_remove = keyframes_.at(max_kf_id);
     }
 
-    LOG(INFO) << "remove keyframe " << frame_to_remove->keyframe_id_;
+    //LOG(INFO) << "remove keyframe " << frame_to_remove->keyframe_id_;
     // remove keyframe and landmark observation
     active_keyframes_.erase(frame_to_remove->keyframe_id_);
     for (auto feat : frame_to_remove->features_) {
@@ -100,7 +100,7 @@ void Map::CleanMap() {
             ++iter;
         }
     }
-    LOG(INFO) << "Removed " << cnt_landmark_removed << " active landmarks";
+    //LOG(INFO) << "Removed " << cnt_landmark_removed << " active landmarks";
 }
 
 }  // namespace myslam
