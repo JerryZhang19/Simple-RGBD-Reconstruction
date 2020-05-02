@@ -45,7 +45,6 @@ void VisualOdometry::Run() {
             break;
         }
     }
-
     backend_->Stop();
     viewer_->Close();
 
