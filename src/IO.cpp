@@ -71,14 +71,19 @@ Frame::Ptr IO::NextFrame() {
         boost::format depth_fmt("%s/depth/%05d.png");
         cv::Mat img, depth,color;
         // read images
+
         color =
             cv::imread((img_fmt % dataset_path_  % current_image_index_).str(),
                        cv::IMREAD_UNCHANGED);
+        if (color.data==nullptr){
+            std::cout << "cannot find images at index " << current_image_index_;
+            return nullptr;
+        }
+            
         cv::cvtColor(color,img,cv::COLOR_BGR2GRAY);
         depth =
             cv::imread((depth_fmt % dataset_path_  % current_image_index_).str(),
                        cv::IMREAD_UNCHANGED);
-
         if (img.data == nullptr || depth.data == nullptr) {
             std::cout << "cannot find images at index " << current_image_index_;
             return nullptr;
