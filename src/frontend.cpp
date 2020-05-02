@@ -252,6 +252,11 @@ int Frontend::TrackLastFrame() {
         if (status[i]) {
             cv::KeyPoint kp(kps_current[i], 7);
             auto position = cv::Point2d(kp.pt);
+            position.x = position.x < 0. ? 0. : position.x;
+            position.y = position.y < 0. ? 0. : position.y;
+            position.x = position.x > current_frame_->depth_.cols-1. ? double(current_frame_->depth_.cols-1.) : position.x;
+            position.y = position.y > current_frame_->depth_.rows-1. ? double(current_frame_->depth_.rows-1.) : position.y;
+
             int depth = current_frame_->depth_.at<unsigned short>(position);
             Feature::Ptr feature(new Feature(current_frame_, kp,double(depth)/1000.0));
             feature->map_point_ = last_frame_->features_[i]->map_point_;
@@ -298,7 +303,7 @@ int Frontend::DetectFeatures() {
     for (auto &kp : keypoints) {
         auto position = cv::Point2d(kp.pt);
         int depth = current_frame_->depth_.at<unsigned short>(position);
-
+        
         if(depth<=Frame::max_depth&&depth>=Frame::min_depth)
         {
             //std::cout<<"depth:"<<depth<<std::endl;
