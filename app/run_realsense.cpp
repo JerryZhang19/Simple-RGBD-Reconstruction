@@ -12,9 +12,6 @@ std::string str("../config/default.yaml");
 int main(int argc, char **argv) {
     //google::ParseCommandLineFlags(&argc, &argv, true);
     
-    simpleslam::Viewer v;
-    v.Close();
-
     simpleslam::VisualOdometry::Ptr vo(
         new simpleslam::VisualOdometry(str));
     vo->SavePose(false);
