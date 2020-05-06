@@ -40,7 +40,7 @@ namespace simpleslam {
 
     std::shared_ptr<open3d::camera::PinholeCameraIntrinsic> to_o3d_intrinsic(std::shared_ptr<Camera> camera)
     {
-        return std::make_shared<open3d::camera::PinholeCameraIntrinsic>(640, 480, camera->fx_,camera->fy_,camera->cx_,camera->cy_);
+        return std::make_shared<open3d::camera::PinholeCameraIntrinsic>(camera->width_, camera->height_, camera->fx_,camera->fy_,camera->cx_,camera->cy_);
     }
 
 }

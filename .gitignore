@@ -6,3 +6,4 @@ bin/
 lib/
 *.zip
 build/
+old_data/
