@@ -57,11 +57,14 @@ bool VisualOdometry::Step() {
     auto t1 = std::chrono::steady_clock::now();
     if (new_frame == nullptr) return false;
     bool success = frontend_->AddFrame(new_frame);
+    if(!success)
+        std::cout<<"Frontend Failed"<<std::endl;
     auto t2 = std::chrono::steady_clock::now();
 
     if(save_pose_)
         io_->SavePose(new_frame);
 
+    /*
     if(save_point_cloud_&&io_->GetIndex()%10==0)
     {
         auto t3 = std::chrono::steady_clock::now();
@@ -71,7 +74,7 @@ bool VisualOdometry::Step() {
         auto t4 = std::chrono::steady_clock::now();
         timer2  +=  std::chrono::duration_cast<std::chrono::duration<double>>(t4 - t3).count();
     }
-
+    */
     if(build_map_)
     {
         auto t3 = std::chrono::steady_clock::now();
@@ -79,26 +82,32 @@ bool VisualOdometry::Step() {
         //mapping_->pcd_viewer->showCloud(mapping_->dense_map);
         auto t4 = std::chrono::steady_clock::now();
         timer2  +=  std::chrono::duration_cast<std::chrono::duration<double>>(t4 - t3).count();
+        if(io_->GetIndex()==1)
+            std::cout <<std::endl<< "Initializing TSDF cost time: " << std::chrono::duration_cast<std::chrono::duration<double>>(t4 - t3).count() << " seconds."<<std::endl;
     }
-    if(build_map_&&io_->GetIndex()%50==0)
-        open3d::visualization::DrawGeometries({mapping_->dense_map->ExtractTriangleMesh()}, "Mesh", 1600, 900);
-
-
+    if(build_map_&&io_->GetIndex()%1==0) {
+        auto tmp1 = std::chrono::steady_clock::now();
+        auto meshPtr = mapping_->dense_map->ExtractTriangleMesh();
+        auto tmp2 = std::chrono::steady_clock::now();
+        double time_marching_cube = std::chrono::duration_cast<std::chrono::duration<double>>(tmp2 - tmp1).count();
+        std::cout << "Marching Cube cost time: " << time_marching_cube << " seconds."<<std::endl;
+        open3d::visualization::DrawGeometries({meshPtr}, "Mesh", 1600, 900);
+    }
     auto t5 = std::chrono::steady_clock::now();
 
     timer0  +=  std::chrono::duration_cast<std::chrono::duration<double>>(t1 - t0).count();
     timer1  +=  std::chrono::duration_cast<std::chrono::duration<double>>(t2 - t1).count();
     timer3  +=  std::chrono::duration_cast<std::chrono::duration<double>>(t5 - t1).count();
 
-    if(io_->GetIndex() % 30 == 0)  //every 50 frames
+    if(io_->GetIndex() % 50 == 0)  //every 50 frames
     {
-        //LOG(INFO) << "IO cost time: " << timer0/30 << " seconds.";
-        //LOG(INFO) << "VO cost time: " << timer1/30 << " seconds.";
-        if(save_point_cloud_||build_map_)
-
-            std::cout << "Mapping cost time: " << timer2/30 << " seconds."<<std::endl;
-        //LOG(INFO) << "Time per frame: " << timer3/30 << " seconds.";
-        //LOG(INFO) << "Frame rate: " << 30/timer3 ;
+        std::cout << "Index: " << io_->GetIndex()<<std::endl;
+        std::cout << "IO cost time: " << timer0/50 << " seconds."<<std::endl;
+        std::cout << "VO cost time: " << timer1/50 << " seconds."<<std::endl;
+        if(build_map_)
+            std::cout << "Mapping cost time: " << timer2/50 << " seconds."<<std::endl;
+        std::cout<< "Time per frame: " << timer3/50 << " seconds."<<std::endl;
+        std::cout<< "Frame rate: " <<50.0/timer3<<std::endl;
         timer0=timer1=timer2=timer3=0;
     }
     return success;

@@ -31,6 +31,9 @@ bool IO::Init() {
         fin>>width;
         fin>>height;
 
+        if(width==0||height)
+            std::cout<<"input image dimension is 0, adjust data/calib.txt";
+
         Mat33 K;
         K << projection_data[0], projection_data[1], projection_data[2],
             projection_data[4], projection_data[5], projection_data[6],

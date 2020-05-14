@@ -79,7 +79,8 @@ bool Frontend::InsertKeyframe() {
     current_frame_->SetKeyFrame();
     map_->InsertKeyFrame(current_frame_);
 
-    //LOG(INFO) << "Set frame " << current_frame_->id_ << " as keyframe "
+    std::cout<< "Set frame " << current_frame_->id_ << " as keyframe "<<std::endl;
+    std::cout<<"total key frame:"<<map_->GetAllKeyFrames().size()<<std::endl;
     //          << current_frame_->keyframe_id_;
 
     SetObservationsForKeyFrame();
@@ -171,7 +172,7 @@ int Frontend::EstimateCurrentPose() {
     }
 
     // estimate the Pose the determine the outliers
-    const double chi2_th = 80;
+    const double chi2_th = 25; //5 pixels
     int cnt_outlier = 0;
     for (int iteration = 0; iteration < 4; ++iteration) {
         vertex_pose->setEstimate(current_frame_->Pose());

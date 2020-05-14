@@ -35,9 +35,13 @@ void Backend::BackendLoop() {
         map_update_.wait(lock);
 
         /// 后端仅优化激活的Frames和Landmarks
+        auto ts = std::chrono::steady_clock::now();
         Map::KeyframesType active_kfs = map_->GetActiveKeyFrames();
         Map::LandmarksType active_landmarks = map_->GetActiveMapPoints();
         Optimize(active_kfs, active_landmarks);
+        auto te = std::chrono::steady_clock::now();
+        double time_backend = std::chrono::duration_cast<std::chrono::duration<double>>(te - ts).count();
+        std::cout << "Backend cost time: " << time_backend << " seconds."<<std::endl;
     }
 }
 
@@ -76,7 +80,7 @@ void Backend::Optimize(Map::KeyframesType &keyframes,
 
     // edges
     int index = 1;
-    double chi2_th = 0.4;  // robust kernel threshold   Notice that loss is measured in meter.
+    double chi2_th = 0.01;  // robust kernel threshold   (0.1m)^2
     std::map<EdgeSE3XYZ *, Feature::Ptr> edges_and_features;
 
     for (auto &landmark : landmarks) {
@@ -154,8 +158,8 @@ void Backend::Optimize(Map::KeyframesType &keyframes,
         }
     }
 
-    //LOG(INFO) << "Outlier/Inlier in backend optimization: " << cnt_outlier << "/"
-    //          << cnt_inlier;
+    std::cout << "Outlier/Inlier in backend optimization: " << cnt_outlier << "/"
+              << cnt_inlier<<std::endl;
 
 
     for (auto &v : vertices) {

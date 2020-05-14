@@ -7,3 +7,5 @@ lib/
 *.zip
 build/
 old_data/
+data*/
+*data/
