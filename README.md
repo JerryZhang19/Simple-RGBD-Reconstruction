@@ -1,11 +1,15 @@
 # A Simple Sparse Odometry Based RGBD Reconstruction
 
-The project use Intel Realsense D435i RGB-D sensor. Pointcloud Reconstruction is working now. 
+This project uses Intel Realsense D435i RGB-D sensor. Here is some preliminary pointcloud reconstruction result.
 
-Odometry part uses optical flow tracking and bundle adjustment optimization using g2o.
+Odometry part uses optical flow tracking and bundle adjustment optimization implemented in g2o.
+
+This repo focuses on mapping, here is another repo that focuses on odometry and uses similar code structure. https://github.com/JerryZhang19/Realsense_RGBD_Odometry
+
+![](images/example.png)
 
 ## Ongoing work
-Other reconstruction method like TSDF and Mesh
+TSDF voxel hashing and Marching Cube.
 
 GPU Reconstruction and realtime paralell reconstruction and localization.
 
@@ -15,9 +19,6 @@ Loop Closure
 
 Sparse map saving in a way suitable for relocalization.
 
-## Related work
-
-A realtime Visual Odometry using D435i: https://github.com/JerryZhang19/Realsense_RGBD_Odometry
 
 ## Reference
 
@@ -38,16 +39,21 @@ Code framework of RGB-D Visual Odometry part is inherited from slambook2 ch13 (s
 * Eigen3,
 
         sudo apt-get install libeigen3-dev
+* Opencv,
 
 * SuiteSparse and CXSparse,
 
         sudo apt-get install libsuitesparse-dev
 
-* Boost,
+* Boost, for format string
 
         sudo apt-get install libboost-dev libboost-filesystem-dev
 
-* Pangolin, 
+* Sophus, for Lie Group computation
+
+        https://github.com/strasdat/Sophus
+        
+* Pangolin, for SLAM visualization
 
         git clone https://github.com/stevenlovegrove/Pangolin.git
         cd Pangolin
@@ -56,13 +62,13 @@ Code framework of RGB-D Visual Odometry part is inherited from slambook2 ch13 (s
         cmake ..
         cmake --build .
         
-* g2o, 
+* g2o,  for Bundle Adjustment 
 
         https://github.com/RainerKuemmerle/g2o
-* pcl,
+* pcl,  for reconstruction
 
         sudo apt-get install libpcl-dev pcl-tools
-* librealsense,
+* librealsense,         for realtime reconstruction
 
         https://github.com/IntelRealSense/librealsense
        
