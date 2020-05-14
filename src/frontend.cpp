@@ -79,8 +79,9 @@ bool Frontend::InsertKeyframe() {
     current_frame_->SetKeyFrame();
     map_->InsertKeyFrame(current_frame_);
 
-    LOG(INFO) << "Set frame " << current_frame_->id_ << " as keyframe "
-              << current_frame_->keyframe_id_;
+    std::cout<< "Set frame " << current_frame_->id_ << " as keyframe "<<std::endl;
+    std::cout<<"total key frame:"<<map_->GetAllKeyFrames().size()<<std::endl;
+    //          << current_frame_->keyframe_id_;
 
     SetObservationsForKeyFrame();
     DetectFeatures();  // detect new features
@@ -123,7 +124,7 @@ int Frontend::InitializeNewPoints()  {
             cnt_triangulated_pts++;
         }
     }
-    LOG(INFO) << "new landmarks: " << cnt_triangulated_pts;
+    //LOG(INFO) << "new landmarks: " << cnt_triangulated_pts;
     return cnt_triangulated_pts;
 }
 
@@ -171,7 +172,7 @@ int Frontend::EstimateCurrentPose() {
     }
 
     // estimate the Pose the determine the outliers
-    const double chi2_th = 80;
+    const double chi2_th = 25; //5 pixels
     int cnt_outlier = 0;
     for (int iteration = 0; iteration < 4; ++iteration) {
         vertex_pose->setEstimate(current_frame_->Pose());
@@ -252,6 +253,11 @@ int Frontend::TrackLastFrame() {
         if (status[i]) {
             cv::KeyPoint kp(kps_current[i], 7);
             auto position = cv::Point2d(kp.pt);
+            position.x = position.x < 0. ? 0. : position.x;
+            position.y = position.y < 0. ? 0. : position.y;
+            position.x = position.x > current_frame_->depth_.cols-1. ? double(current_frame_->depth_.cols-1.) : position.x;
+            position.y = position.y > current_frame_->depth_.rows-1. ? double(current_frame_->depth_.rows-1.) : position.y;
+
             int depth = current_frame_->depth_.at<unsigned short>(position);
             Feature::Ptr feature(new Feature(current_frame_, kp,double(depth)/1000.0));
             feature->map_point_ = last_frame_->features_[i]->map_point_;
@@ -259,7 +265,6 @@ int Frontend::TrackLastFrame() {
             num_good_pts++;
         }
     }
-
     //LOG(INFO) << "Find " << num_good_pts << " in the last image.";
     return num_good_pts;
 }
@@ -299,7 +304,7 @@ int Frontend::DetectFeatures() {
     for (auto &kp : keypoints) {
         auto position = cv::Point2d(kp.pt);
         int depth = current_frame_->depth_.at<unsigned short>(position);
-
+        
         if(depth<=Frame::max_depth&&depth>=Frame::min_depth)
         {
             //std::cout<<"depth:"<<depth<<std::endl;
@@ -346,14 +351,14 @@ bool Frontend::BuildInitMap() {
     map_->InsertKeyFrame(current_frame_);
     backend_->UpdateMap();
 
-    LOG(INFO) << "Initial map created with " << cnt_init_landmarks
+    std::cout << "Initial map created with " << cnt_init_landmarks
               << " map points";
 
     return true;
 }
 
 bool Frontend::Reset() {
-    LOG(INFO) << "Reset is not implemented. ";
+    //LOG(INFO) << "Reset is not implemented. ";
     std::exit(0);
     return true;
 }

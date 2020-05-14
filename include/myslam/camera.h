@@ -13,6 +13,8 @@ class Camera {
     EIGEN_MAKE_ALIGNED_OPERATOR_NEW;
     typedef std::shared_ptr<Camera> Ptr;
 
+    int width_ = 848;
+    int height_ =480;
     double fx_ = 0, fy_ = 0, cx_ = 0, cy_ = 0,
            baseline_ = 0;  // Camera intrinsics
     SE3 pose_;             // extrinsic, from stereo camera to single camera
@@ -22,9 +24,9 @@ class Camera {
 
     Camera();
 
-    Camera(double fx, double fy, double cx, double cy, double baseline,
+    Camera(double fx, double fy, double cx, double cy, int width, int height, double baseline,
            const SE3 &pose)
-        : fx_(fx), fy_(fy), cx_(cx), cy_(cy), baseline_(baseline), pose_(pose) {
+        : fx_(fx), fy_(fy), cx_(cx), cy_(cy), baseline_(baseline), pose_(pose), height_(height), width_(width){
         pose_inv_ = pose_.inverse();
     }
 

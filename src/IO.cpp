@@ -9,13 +9,13 @@ using namespace std;
 namespace simpleslam {
 
 IO::IO(const std::string& dataset_path)
-    : dataset_path_(dataset_path) {}
+    : dataset_path_(dataset_path) {Init();}
 
 bool IO::Init() {
     // read camera intrinsics and extrinsics
     ifstream fin(dataset_path_ + "/calib.txt");
     if (!fin) {
-        LOG(ERROR) << "cannot find " << dataset_path_ << "/calib.txt!";
+        std::cout << "cannot find " << dataset_path_ << "/calib.txt!";
         return false;
     }
     int num_camera;
@@ -26,6 +26,14 @@ bool IO::Init() {
         for (int k = 0; k < 12; ++k) {
             fin >> projection_data[k];
         }
+
+        int width,height;
+        fin>>width;
+        fin>>height;
+
+        if(width==0||height)
+            std::cout<<"input image dimension is 0, adjust data/calib.txt";
+
         Mat33 K;
         K << projection_data[0], projection_data[1], projection_data[2],
             projection_data[4], projection_data[5], projection_data[6],
@@ -34,11 +42,11 @@ bool IO::Init() {
         t << projection_data[3], projection_data[7], projection_data[11];
         t = K.inverse() * t;
         //K = K * 0.5;
-        Camera::Ptr new_camera(new Camera(K(0, 0), K(1, 1), K(0, 2), K(1, 2),
+        Camera::Ptr new_camera(new Camera(K(0, 0), K(1, 1), K(0, 2), K(1, 2),width,height,
                                           t.norm(), SE3(SO3(), t)));
         cameras_.push_back(new_camera);
-        LOG(INFO) <<"camera intrisics:"<<new_camera->K();
-        LOG(INFO) << "Camera " << i << " extrinsics: " << t.transpose();
+        std::cout <<"camera intrisics:"<<new_camera->K();
+        std::cout << "Camera " << i << " extrinsics: " << t.transpose();
     }
     fin.close();
     current_image_index_ = 0;
@@ -71,16 +79,21 @@ Frame::Ptr IO::NextFrame() {
         boost::format depth_fmt("%s/depth/%05d.png");
         cv::Mat img, depth,color;
         // read images
+
         color =
             cv::imread((img_fmt % dataset_path_  % current_image_index_).str(),
                        cv::IMREAD_UNCHANGED);
+        if (color.data==nullptr){
+            std::cout << "cannot find images at index " << current_image_index_;
+            return nullptr;
+        }
+            
         cv::cvtColor(color,img,cv::COLOR_BGR2GRAY);
         depth =
             cv::imread((depth_fmt % dataset_path_  % current_image_index_).str(),
                        cv::IMREAD_UNCHANGED);
-
         if (img.data == nullptr || depth.data == nullptr) {
-            LOG(WARNING) << "cannot find images at index " << current_image_index_;
+            std::cout << "cannot find images at index " << current_image_index_;
             return nullptr;
         }
         new_frame->img_ = img;
@@ -102,11 +115,7 @@ bool IO::SavePose(Frame::Ptr current_frame)
     myfile.close();
 }
 
-bool IO::SavePointCloud(Mapping::PointCloud::Ptr pcd)
-{
-    boost::format pcd_fmt("%s/pointcloud/%05d.pcd");
-    pcl::io::savePCDFileASCII ((pcd_fmt % dataset_path_  % current_image_index_).str(), *pcd);
-}
+
 
 void IO::SetupRealsenseCamera() {
     pipe_ = std::make_shared<rs2::pipeline>();

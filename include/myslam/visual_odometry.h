@@ -16,7 +16,11 @@ namespace simpleslam {
 /**
  * VO 对外接口
  */
-class VisualOdometry {
+class 
+#if __APPLE__
+    __attribute__((visibility("default")))
+#endif
+    VisualOdometry {
 public:
     EIGEN_MAKE_ALIGNED_OPERATOR_NEW;
     typedef std::shared_ptr<VisualOdometry> Ptr;

@@ -4,8 +4,8 @@
 #include "myslam/camera.h"
 #include "myslam/common_include.h"
 #include "myslam/frame.h"
-#include <pcl/point_types.h>
-#include <pcl/io/pcd_io.h>
+//#include <pcl/point_types.h>
+//#include <pcl/io/pcd_io.h>
 #include <librealsense2/rs.hpp>
 
 #include "mapping.h"
@@ -34,8 +34,9 @@ class IO {
     }
 
     bool SavePose(Frame::Ptr current_frame);
-    bool SavePointCloud(Mapping::PointCloud::Ptr pcd);
+    //bool SavePointCloud(Mapping::PointCloud::Ptr pcd);
     int GetIndex(){return current_image_index_;}
+    bool IsLast();
     void SetRealtime(bool flag){realtime_=flag;}
     void SetupRealsenseCamera();
    private:

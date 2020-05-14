@@ -65,7 +65,7 @@ class Map {
     Frame::Ptr current_frame_ = nullptr;
 
     // settings
-    int num_active_keyframes_ = 7;  // 激活的关键帧数量
+    int num_active_keyframes_ = 10;  // 激活的关键帧数量
 };
 }  // namespace myslam
 

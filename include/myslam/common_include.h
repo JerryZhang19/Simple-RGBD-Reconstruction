@@ -114,6 +114,6 @@ typedef Sophus::SO3d SO3;
 using cv::Mat;
 
 // glog
-#include <glog/logging.h>
+//#include <glog/logging.h>
 
 #endif  // MYSLAM_COMMON_INCLUDE_H

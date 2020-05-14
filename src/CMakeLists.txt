@@ -1,3 +1,4 @@
+
 add_library(simpleslam SHARED
         frame.cpp
         mappoint.cpp
@@ -8,9 +9,12 @@ add_library(simpleslam SHARED
         frontend.cpp
         backend.cpp
         viewer.cpp
-        visual_odometry.cpp
+        visual_odometry.cpp    
         IO.cpp
-        mapping.cpp)
+        mapping.cpp
+        conversion.cpp)
+
+#target_include_directories(simpleslam PUBLIC ${Open3D_INCLUDE_DIRS} )
 
 target_link_libraries(simpleslam
-        ${THIRD_PARTY_LIBS})
+    ${THIRD_PARTY_LIBS})
