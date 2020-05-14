@@ -8,7 +8,7 @@ Reconstruction part uses TSDF Fusion and Marching Cube meshing.
 
 This repo focuses on mapping, here is another repo that focuses on odometry and uses similar code structure. https://github.com/JerryZhang19/Realsense_RGBD_Odometry
 
-![](images/example.png)
+![](docs/example.png)
 
 
 ## Future work
@@ -28,13 +28,6 @@ Code framework of RGB-D Visual Odometry is partly inherited from a stereo Odomet
 
 ## Dependency
 
-* CMake,
-
-        sudo apt-get install cmake
-
-* google-glog + gflags,
-
-        sudo apt-get install libgoogle-glog-dev
         
 * Eigen3,
 
