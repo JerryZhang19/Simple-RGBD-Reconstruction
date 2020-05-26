@@ -1,11 +1,113 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <style>
+        div.padded 
+        {
+            padding-top: 0px;
+            padding-right: 180px;
+            padding-bottom: 0.25in;
+            padding-left: 180px;
+            line-height:24px;
+            font-size: 19px;
+        }
+        
+    div.site-header 
+   {
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    overflow: auto; 
+   }
+ 
+    div.title-bar {
+    float: right;
+    padding: 5px;
+    }
+
+    div.title-bar ul {
+    list-style-type: none;
+    overflow: hidden;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    }
+
+    div.title-bar li {
+    padding: 5px;
+    float: left;
+    }
+        
+    div.title-bar li a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: normal;
+    color: rgb(129, 129, 129);
+    padding: 16px;
+    }
+
+    div.title-bar li a:hover {
+    background-color: rgb(246, 246, 246);
+    border-radius: 18px;
+    color: #5c5c5c;
+    }
+        
+    div.row:after {
+    content: "";
+    display: table;
+    clear: both;
+    }
+    
+    div.centered_text{
+        max-width: 700px;
+        margin:auto;
+        padding: 30px;
+    }
+
+    div.centered_pdf{
+        margin:auto;
+        padding: 30px;
+    }
+    div.centered_video{
+        max-width: 1080px;
+        margin:auto;
+        padding: 30px;
+    }
+
+
+    </style>
+    
+    <title>3D Reconstruction Project</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+</head>
+
 <body>
-
-<video width="320" height="240" controls>
-  <source src="scene1_2.mp4" type="video/mp4">
-  <source src="scene2_2.mp4" type="video/mp4">
-</video>
-
-</body>
+    <div class="site-header">
+                  <div class="title-bar">
+                      <ul>
+                          <li>
+                              <a href="index.html">Report</a>
+                          </li>
+                          <li>
+                              <a href="video.html">Video</a>
+                          </li>
+                      </ul>
+                  </div>
+      </div>
+    
+    <div class = "centered_video">
+      <h2 align = "center">Room</h2>
+      <video width="1080" height="720" controls>
+        <source src="scene1_2.mp4" type="video/mp4">
+      </video>
+      <h2 align = "center">Corridor</h2>
+      <video width="1080" height="720" controls>
+          <source src="scene2_2.mp4" type="video/mp4">
+      </video>  
+    </div>
+  </body>
 </html>
