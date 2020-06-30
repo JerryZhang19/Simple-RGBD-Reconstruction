@@ -13,7 +13,7 @@ class Camera {
     EIGEN_MAKE_ALIGNED_OPERATOR_NEW;
     typedef std::shared_ptr<Camera> Ptr;
 
-    int width_ = 848;
+    int width_ = 640;
     int height_ =480;
     double fx_ = 0, fy_ = 0, cx_ = 0, cy_ = 0,
            baseline_ = 0;  // Camera intrinsics

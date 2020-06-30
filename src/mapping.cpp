@@ -7,8 +7,8 @@
 namespace simpleslam{
     Mapping::Mapping()
     {
-        float voxel_length = 0.01;
-        dense_map = Map_Ptr(new TSDF(voxel_length,0.15,open3d::integration::TSDFVolumeColorType::RGB8));
+        float voxel_length = 0.0007;
+        dense_map = Map_Ptr(new TSDF(voxel_length,0.004,open3d::integration::TSDFVolumeColorType::RGB8));
     }
 
     bool Mapping::merge_with(Frame::Ptr frame,Camera::Ptr camera) {

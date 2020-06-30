@@ -31,7 +31,7 @@ bool IO::Init() {
         fin>>width;
         fin>>height;
 
-        if(width==0||height)
+        if(width==0||height==0)
             std::cout<<"input image dimension is 0, adjust data/calib.txt";
 
         Mat33 K;

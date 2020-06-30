@@ -33,7 +33,7 @@ namespace simpleslam {
             }
         }
 
-        auto rgbd_image = open3d::geometry::RGBDImage::CreateFromColorAndDepth(*color_im, *depth_im, 1000.0, 4.0, false);
+        auto rgbd_image = open3d::geometry::RGBDImage::CreateFromColorAndDepth(*color_im, *depth_im, 1000.0, 0.5, false);
         return rgbd_image;
     }
 

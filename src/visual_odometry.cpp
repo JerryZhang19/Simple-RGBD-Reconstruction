@@ -20,8 +20,6 @@ bool VisualOdometry::Init() {
 
     io_ =IO::Ptr(new IO(Config::Get<std::string>("dataset_dir")));
     io_->SetRealtime(realtime_);
-    //CHECK_EQ(io_->Init(), true);
-    // create components and links
     frontend_ = Frontend::Ptr(new Frontend);
     backend_ = Backend::Ptr(new Backend);
     map_ = Map::Ptr(new Map);
@@ -85,7 +83,7 @@ bool VisualOdometry::Step() {
         if(io_->GetIndex()==1)
             std::cout <<std::endl<< "Initializing TSDF cost time: " << std::chrono::duration_cast<std::chrono::duration<double>>(t4 - t3).count() << " seconds."<<std::endl;
     }
-    if(build_map_&&io_->GetIndex()%1==0) {
+    if(build_map_&&io_->GetIndex()%50==0) {
         auto tmp1 = std::chrono::steady_clock::now();
         auto meshPtr = mapping_->dense_map->ExtractTriangleMesh();
         auto tmp2 = std::chrono::steady_clock::now();

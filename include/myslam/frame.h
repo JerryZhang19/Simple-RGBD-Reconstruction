@@ -24,7 +24,7 @@ struct Frame {
     unsigned long id_ = 0;           // id of this frame
     unsigned long keyframe_id_ = 0;  // id of key frame
 
-    static const int min_depth = 100;    //0.1m
+    static const int min_depth = 50;    //5 cm
     static const int max_depth = 12000;  //12m, range of realsense D435
 
     bool is_keyframe_ = false;       // 是否为关键帧

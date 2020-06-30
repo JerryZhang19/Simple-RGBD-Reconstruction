@@ -14,7 +14,5 @@ add_library(simpleslam SHARED
         mapping.cpp
         conversion.cpp)
 
-#target_include_directories(simpleslam PUBLIC ${Open3D_INCLUDE_DIRS} )
-
 target_link_libraries(simpleslam
     ${THIRD_PARTY_LIBS})
