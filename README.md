@@ -1,19 +1,19 @@
 # A Simple Sparse Odometry Based RGBD Reconstruction
 
-This project uses Intel Realsense D435i RGB-D sensor. Here is some preliminary pointcloud reconstruction result.
+This project uses Intel Realsense D435i RGB-D sensor. 
 
 Odometry part uses optical flow tracking and bundle adjustment optimization implemented in g2o.
 
+Reconstruction part uses TSDF Fusion and Marching Cube meshing.
+
 This repo focuses on mapping, here is another repo that focuses on odometry and uses similar code structure. https://github.com/JerryZhang19/Realsense_RGBD_Odometry
 
-![](images/example.png)
+![](docs/example.png)
 
-## Ongoing work
-TSDF voxel hashing and Marching Cube.
-
-GPU Reconstruction and realtime paralell reconstruction and localization.
 
 ## Future work
+
+GPU Implementation
 
 Loop Closure
 
@@ -24,17 +24,10 @@ Sparse map saving in a way suitable for relocalization.
 
 slambook2 https://github.com/gaoxiang12/slambook2 gives a great introduction to Visual SLAM.
 
-Code framework of RGB-D Visual Odometry part is inherited from slambook2 ch13 (streo odometry).
+Code framework of RGB-D Visual Odometry is partly inherited from a stereo Odometry system in the book.
 
 ## Dependency
 
-* CMake,
-
-        sudo apt-get install cmake
-
-* google-glog + gflags,
-
-        sudo apt-get install libgoogle-glog-dev
         
 * Eigen3,
 
@@ -53,21 +46,15 @@ Code framework of RGB-D Visual Odometry part is inherited from slambook2 ch13 (s
 
         https://github.com/strasdat/Sophus
         
-* Pangolin, for SLAM visualization
-
-        git clone https://github.com/stevenlovegrove/Pangolin.git
-        cd Pangolin
-        mkdir build
-        cd build
-        cmake ..
-        cmake --build .
         
 * g2o,  for Bundle Adjustment 
 
         https://github.com/RainerKuemmerle/g2o
-* pcl,  for reconstruction
 
-        sudo apt-get install libpcl-dev pcl-tools
+* Open3D for TSDF Fusion and Marching Cube meshing
+
+        http://www.open3d.org/
+
 * librealsense,         for realtime reconstruction
 
         https://github.com/IntelRealSense/librealsense
